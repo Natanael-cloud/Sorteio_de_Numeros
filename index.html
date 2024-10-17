@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador de Números</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Cabeçalho do sorteador de números -->
+    <h1>Sorteador de Números</h1>
+
+    <!-- Grupo de entrada para o número inicial -->
+    <div class="input-group">
+        <!-- Rótulo para o campo de número inicial -->
+        <label for="numeroInicial">Número inicial:</label>
+        <!-- Campo de entrada para o usuário digitar o número inicial -->
+        <input type="number" id="numeroInicial" placeholder="Ex: 0">
+    </div>
+
+    <!-- Grupo de entrada para o número final -->
+    <div class="input-group">
+        <!-- Rótulo para o campo de número final -->
+        <label for="numeroFinal">Número final:</label>
+        <!-- Campo de entrada para o usuário digitar o número final -->
+        <input type="number" id="numeroFinal" placeholder="Ex: 100">
+    </div>
+
+    <!-- Botão para iniciar o sorteio do número -->
+    <!-- Quando clicado, chama a função 'sortearNumero()' do JavaScript -->
+    <button onclick="sortearNumero()">Sortear Número</button>
+
+    <!-- Div que exibirá o resultado do sorteio -->
+    <div id="resultado" class="resultado"></div>
+    </div>
+
+    <!-- Contêiner onde os balões animados aparecerão após o sorteio -->
+  <div id="baloes-container"></div>
+
+    <!-- Script JavaScript que contém as funções e a lógica do sorteio -->
+    <script src="index.js"></script>
+  </body>
+</html>
+
