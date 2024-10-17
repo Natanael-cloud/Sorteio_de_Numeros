@@ -1,0 +1,149 @@
+/* Remove o espaçamento padrão de todos os elementos e define box-sizing para garantir que o padding e border sejam incluídos nas dimensões totais dos elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define o estilo geral do corpo da página com uma fonte, um background gradiente, centralizando o conteúdo e evitando que a página tenha rolagem */
+body {
+  font-family: 'Arial', sans-serif; /* Define a fonte padrão */
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%); /* Gradiente no background */
+  height: 100vh; /* Define a altura como 100% da altura da janela */
+  display: flex; /* Usa flexbox para alinhar os elementos filhos */
+  justify-content: center; /* Alinha horizontalmente ao centro */
+  align-items: center; /* Alinha verticalmente ao centro */
+  overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse a tela */
+}
+
+/* Estiliza o container principal, definindo cor de fundo, espaçamento interno, bordas arredondadas e uma sombra para dar destaque */
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao container */
+  text-align: center;
+  width: 350px; /* Define a largura do container */
+  z-index: 1; /* Garante que o container fique à frente de outros elementos */
+}
+
+/* Estilo do título principal */
+h1 {
+  margin-bottom: 20px; /* Espaçamento inferior */
+  font-size: 24px; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+}
+
+/* Estilo para os grupos de inputs */
+.input-group {
+  margin-bottom: 15px; /* Espaçamento inferior entre os grupos de input */
+}
+
+/* Estilo para os rótulos dos inputs */
+label {
+  display: block; /* Exibe o rótulo como um bloco */
+  margin-bottom: 5px; /* Espaçamento inferior */
+  color: #555; /* Cor do texto */
+}
+
+/* Estilo para os inputs */
+input {
+  width: 100%; /* Largura total do input */
+  padding: 10px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  border: 1px solid #ddd; /* Cor da borda */
+  border-radius: 5px; /* Borda arredondada */
+  outline: none; /* Remove o contorno padrão ao focar */
+  transition: border-color 0.3s ease; /* Transição suave para mudança de cor da borda */
+}
+
+/* Muda a cor da borda do input ao focar */
+input:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+}
+
+/* Estilo para os botões */
+button {
+  padding: 10px 20px; /* Espaçamento interno no botão */
+  font-size: 16px; /* Tamanho da fonte */
+  border: none; /* Remove borda padrão */
+  border-radius: 5px; /* Borda arredondada */
+  background-color: #28a745; /* Cor de fundo verde */
+  color: white; /* Cor do texto */
+  cursor: pointer; /* Muda o cursor ao passar o mouse sobre o botão */
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo ao passar o mouse */
+}
+
+/* Muda a cor de fundo do botão ao passar o mouse */
+button:hover {
+  background-color: #218838; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para a mensagem de resultado */
+.resultado {
+  margin-top: 30px; /* Espaçamento superior */
+  font-size: 22px; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+  font-weight: bold; /* Negrito */
+  visibility: hidden; /* Inicialmente oculta */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 5px; /* Borda arredondada */
+  background-color: #f4f4f4; /* Cor de fundo clara */
+  border: 2px solid #007bff; /* Borda azul */
+}
+
+/* Mostra o resultado e aplica uma animação */
+.resultado.show {
+  visibility: visible; /* Torna o resultado visível */
+  animation: destaque 0.5s ease-in-out; /* Animação de destaque */
+}
+
+/* Define a animação de destaque para o resultado */
+@keyframes destaque {
+  from {
+      transform: scale(0.8); /* Inicia com escala menor */
+      opacity: 0; /* Inicia transparente */
+  }
+  to {
+      transform: scale(1); /* Volta à escala original */
+      opacity: 1; /* Volta à opacidade completa */
+  }
+}
+
+/* Estilo para os balões que sobem */
+.balao {
+  position: absolute;
+  bottom: -100px; /* Inicia abaixo da tela */
+  width: 50px; /* Largura do balão */
+  height: 70px; /* Altura do balão */
+  background-color: red; /* Cor do balão */
+  border-radius: 50%; /* Forma circular */
+  opacity: 0.8; /* Transparência */
+  animation: subir 5s ease-in infinite; /* Animação de subida contínua */
+}
+
+/* Adiciona uma linha (corda) no balão */
+.balao:before {
+  content: ''; /* Cria o conteúdo vazio (a linha) */
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px; /* Largura da linha */
+  height: 20px; /* Altura da linha */
+  background-color: black; /* Cor da linha */
+}
+
+/* Define a animação de subida dos balões */
+@keyframes subir {
+  0% {
+      bottom: -100px; /* Inicia abaixo da tela */
+      opacity: 0.8; /* Transparência inicial */
+      transform: translateX(0); /* Sem deslocamento horizontal */
+  }
+  100% {
+      bottom: 100vh; /* Sobe até o topo da tela */
+      opacity: 0; /* Fica totalmente transparente ao final */
+      transform: translateX(50px); /* Desloca-se horizontalmente durante a subida */
+  }
+}
+
